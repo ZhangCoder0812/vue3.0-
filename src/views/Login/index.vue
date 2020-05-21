@@ -22,7 +22,7 @@
              <el-col :span="15">
                 <el-input type="password" v-model="formValue.code" autocomplete="off"></el-input></el-col>
              <el-col :span="9">
-                <el-button type="success" @click="submitForm()" class=" block">获取验证码</el-button>
+                <el-button type="success" @click="handleGetSms()" class=" block">获取验证码</el-button>
              </el-col>
            </el-row>
          </el-form-item>
@@ -37,6 +37,7 @@
 </template>
 
 <script >
+import {getSms,Login} from "@/api/login";
 import { reactive , ref , isRef , onMounted} from '@vue/composition-api'
 export default {
     name:'login',
@@ -70,7 +71,7 @@ export default {
 
 //生命周期前面加 on
       onMounted(()=>{
-
+        Login()
       })
 
 // 自定义函数 直接书写 不用写在methods里面
@@ -85,13 +86,18 @@ export default {
       }
 
 
+      const handleGetSms=()=>{
+        getSms({username:formValue.username})
+      }
+
 // 必须要把定义的东西 return 出去才能使用
 
       return{
          menuTab,
          toggleMenu,
          submitForm,
-         formValue
+         formValue,
+        handleGetSms
       }
 
 

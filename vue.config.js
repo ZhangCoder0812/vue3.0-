@@ -56,6 +56,15 @@ module.exports = {
       warnings: true,
       errors: true
     }, // 错误、警告在页面弹出
+    proxy:{ /// 代理
+      '/devApi':{  // 这个devApi代表替换target后面的路由
+        target:'http://www.web-jshtml.cn/productapi',
+        changeOrigin:true,
+        pathRewrite:{
+          '^/devApi':''
+        }
+      }
+    }
   },
   // 第三方插件配置
   pluginOptions: {}
