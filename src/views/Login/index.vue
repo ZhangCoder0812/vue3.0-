@@ -87,7 +87,11 @@ export default {
 
 
       const handleGetSms=()=>{
-        getSms({username:formValue.username})
+         getSms({username:formValue.username}).then(res=>{
+           console.log(res);
+         }).catch(err=>{
+           console.log(err);
+         })
       }
 
 // 必须要把定义的东西 return 出去才能使用
