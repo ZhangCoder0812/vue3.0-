@@ -1,0 +1,13 @@
+$navMenu:250px;
+$navMenuMin:64px;
+$mainColor: #f56c6c;
+$layoutHeader:75px;
+
+
+@mixin webkit($type,$value){
+  #{$type}: $value;
+  -webkit-#{$type} : $value;
+  -o-#{$type}: $value;
+  -ms-#{$type} : $value;
+  -moz-#{$type}: $value;
+}

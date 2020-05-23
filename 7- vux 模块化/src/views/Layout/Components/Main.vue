@@ -1,0 +1,38 @@
+<template>
+    <div class="main-wrap">
+        <router-view />
+    </div>
+</template>
+
+<script>
+  export default {
+    name: "Main",
+    setup(props,{root}){
+
+    }
+  };
+</script>
+
+<style scoped lang="scss">
+    .main-wrap{
+        position: fixed;
+        top:75px;
+        right: 0;
+        left:250px;
+        bottom: 0;
+        border: 30px solid #f7f7f7;
+        border-bottom: none;
+        box-sizing: border-box;
+        @include webkit(transition,all .3s ease 0s);
+    }
+    open{
+        .main-wrap{
+            left: $navMenu;
+        }
+    }
+    .close{
+        .main-wrap{
+            left: $navMenuMin;
+        }
+    }
+</style>
